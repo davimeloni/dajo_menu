@@ -8,4 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+// document.addEventListener('deviceready', () => {platformBrowserDynamic().bootstrapModule(AppModule);
+// }, false);
 platformBrowserDynamic().bootstrapModule(AppModule);

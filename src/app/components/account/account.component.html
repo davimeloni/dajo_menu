@@ -1,0 +1,139 @@
+<header>
+  <div class="row" id="headerContent">
+    <div class="form-inline">
+      <div (click)="backMenu()">
+        <i class="glyphicon glyphicon-arrow-left" style="font-size: 30px"></i>
+        <br> Menu
+      </div>
+      <div id="customer">
+        {{account.customer.username}}
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div style="text-align: center; word-wrap: break-word;">
+    <button *ngIf="account.status != askedToClose" type="button" style="text-align: center;" (click)="askToClose()" class="btn btn-block btn-primary">
+      Close account
+    </button>
+    <div *ngIf="account.status == askedToClose">
+      <strong>
+        Account is being closed...
+      </strong>
+    </div>
+  </div>
+
+  <br>
+
+  <div>
+
+    <div *ngIf="confirmCloseAccountMessage" class="modal-content">
+      <div class="modal-body" style="text-align: center; word-wrap: break-word;">
+        <span>{{confirmCloseAccountMessage}}</span>
+        <br>
+        <div>
+          <button class="btn btn-info" (click)="cancelConfirm()">
+            No
+          </button>
+          <button class="btn btn-primary" (click)="askToCloseConfirm()">
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="confirmOrderMessage" class="modal-content">
+      <div class="modal-body" style="text-align: center; word-wrap: break-word;">
+        <span>{{confirmOrderMessage}}</span>
+        <br>
+        <div>
+          <button class="btn btn-info" (click)="cancelConfirm()">
+            No
+          </button>
+          <button class="btn btn-primary" (click)="orderItensConfirm()">
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <ul class="list-group" id="openItens">
+      <h3>
+        Items to order
+        <button style="float: right;" class="btn btn-sm btn-primary" (click)="orderItens()">
+          Order items
+        </button>
+      </h3>
+      <li class="list-group-item" id="openItem" *ngFor="let item of cartItens">
+        <div class="form-group">
+          <span>
+            <strong>{{item.orderedItem.name}}</strong>
+            <button style="float: right; color: red;" type="button" (click)="removeItem(item)" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments: </label>
+          <span style="float: right">{{item.orderedItem.price | currency:'AUD':true}}</span>
+          <br> {{item.comments}}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="list-group">
+    <h3>Cooking Items</h3>
+    <li class="list-group-item" *ngFor="let item of kitchenItens">
+      <div class="form-group">
+        <span>
+            <strong>{{item.orderedItem.name}}</strong>
+            <span style="float: right">{{item.orderedItem.price | currency:'AUD':true}}</span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="comments">Commentarios: </label>
+        <br> {{item.comments}}
+      </div>
+    </li>
+  </ul>
+
+  <ul class="list-group">
+    <h3>Delivered Items</h3>
+    <li class="list-group-item" *ngFor="let item of deliveredItens">
+      <div class="form-group">
+        <span>
+            <strong>{{item.orderedItem.name}}</strong>
+            <span style="float: right">{{item.orderedItem.price | currency:'AUD':true}}</span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="comments">Comments: </label>
+        <br> {{item.comments}}
+      </div>
+    </li>
+  </ul>
+</div>
+
+  <!-- FOOTER -->
+  <footer class="container-fluid" data-position="fixed">
+    <div class="col-md-12 navbar-default navbar-fixed-bottom">
+      <div style="font-size: 16px;" class="row" id="bottomNav">
+
+        <span style="float: left; margin-left: 10px">
+          Account: {{account.counter}}
+        </span>
+
+        <span style="float: right">
+          Total: {{account.price | currency:'AUD':true}}
+        </span>
+
+      </div>
+    </div>
+  </footer>

@@ -1,0 +1,36 @@
+<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+       [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          Add Item
+          <ng-content select=".app-modal-header"></ng-content>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+                <span>
+                    <strong>{{item.name}} <span style="float: right;">{{item.price | currency:'AUD':true}}</span></strong>
+                </span>
+            </div>
+
+            <div class="form-group">
+                {{item.description}}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleTextarea">Comments</label>
+                <textarea class="form-control" id="comments" rows="2" [(ngModel)]="comments" name="comments"></textarea>
+            </div>
+
+          <ng-content select=".app-modal-body"></ng-content>
+
+        </div>
+        <div class="modal-footer">
+          <ng-content select=".app-modal-footer"></ng-content>
+          <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addItem(item, comments)">Add Item</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,100 @@
+<header>
+  <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <form class="form">
+                    <div class="form-group" id="headerContent">
+
+                        <div class="col-xs-4 col-md-4">
+                            <span id="homeicon" style="float: left;">
+                                <i class="glyphicon glyphicon-blackboard"></i>
+                                <br/>
+                                Table:{{("0000" + account.table).slice(-2)}}
+                            </span>
+                        </div>
+
+                        <div class="col-xs-4 col-md-4">
+                            <span id="menuicon" style="font-size: 20px;">
+                                 Menu
+                            </span>
+                        </div>
+
+                        <div class="col-xs-4 col-md-4">
+                            <span id="accounticon" style="float: right;" (click)="openAccount()">
+                                 <i class="glyphicon glyphicon-list-alt"></i>
+                                <br/>
+                                <strong>Account</strong>
+                            </span>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+</header>
+
+<!-- CONTENT -->
+<div id="container">
+  <div class="row no-gutter">
+    <div class="tabbable tabs-right">
+
+      <!-- MENU LIST -->
+      <div class="col-xs-10">
+        <div class="tab-content" id="tab-content">
+          <ul class="media-list tab-pane fade in active">
+            <li class="media" *ngFor="let item of displayItens">
+              <div style="font-size: 14px;" class="media-heading">
+                <span>{{item.name}}</span>
+                <span style="float: right">{{item.price | currency:'AUD':true}}</span>
+              </div>
+
+              <div style="font-size: 10px;" class="media-body" >
+                {{item.description}}
+              </div>
+              <div class="media-bottom" style="text-align: center; padding-top: 5px;">
+                <!--<span class="fa fa-facebook-official"></span> Comentar-->
+                <button id="cartButton" class="btn btn-sm btn-link" style="float: right; color: green">
+                  <i class="fa fa-2x fa-cart-plus" (click)="addItem.show(item)" ></i>
+                </button>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT TAB -->
+      <div class="col-xs-1">
+        <div class="tabbed">
+          <ul id="tabs">
+            <li *ngFor="let selectedCategoryType of selectedCategory.categorytype; let idx = index" 
+                (click)="changeCategoryType(selectedCategoryType, idx)" [ngClass]="{selCT: idx == selectedCT}">
+              <span>{{selectedCategoryType}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="container-fluid" data-position="fixed">
+  <div class="col-md-12 navbar-default navbar-fixed-bottom">
+    <div class="row" id="bottomNav">
+
+      <div *ngFor="let c of categories; let idx = index" class="col-xs-3 text-center"
+       style="text-align: center" (click)="changeCategory(c, idx)">
+        <div [ngClass]="{selC: idx == selectedC}">
+          <i class="{{c.icon}}"></i><br>{{c.category}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+<!-- Modal Add to Cart -->
+<app-additem #addItem>
+  </app-additem>

@@ -1,0 +1,229 @@
+
+/*body {
+ background-color:#fafafa !important; 
+ 
+}*/
+
+
+/* header */
+header{
+    background-color: red !important;
+    color: white;
+    position:fixed; 
+    z-index: 4;
+    top:0; left:0;
+    width:100%;
+    height:70px;
+    padding-top: 10;
+    padding-bottom: 10;
+    box-shadow: rgba(0,0,0,.1) -2px 3px 5px, inset rgba(255,255,255,.09) 1px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#headerContent {
+    padding-top: 20px;
+}
+
+.glyphicon-list-alt {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.glyphicon-blackboard {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+/*footer*/
+footer {
+    position:fixed; 
+    z-index:5;
+    bottom:0; left:0;
+    
+    width:100%;
+    height:70px;
+}
+
+#bottomNav {
+    box-shadow: rgba(0,0,0,.1) 0px -3px 3px, inset rgba(255,255,255,.09) 1px 0;
+    padding:0;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size:10px;
+    text-align: center;
+    color: #777;
+    text-decoration:none;
+}
+
+#bottomNav a {
+    font-size:10px;
+    text-align: center;
+    color: #777;
+    text-decoration:none;
+}
+
+
+.selC {
+    font-style: italic;
+    color: red;
+}
+
+/*
+#bottomNav a:focus, a:active, a:target {
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+}*/
+
+#container {
+    background: #fafafa;
+}
+
+/*no margin no padding*/
+
+body,ul,li {
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* custom inclusion of right tabs */
+
+.tabbed {
+    margin-top: 70px;
+    margin-bottom: 48px;
+    -webkit-overflow-scrolling:touch;
+    overflow:hidden;
+    transition: border 250ms ease;
+    width: 200%;
+    border-left: 3px solid #fafafa;
+}
+
+.tabbed ul {
+    float: none;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.tabbed ul * {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tabbed ul li {
+    display: block;
+    padding: 7px 12px 7px; 
+    background-color: tomato;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 40px;
+    height: 100px;
+    word-wrap: break-word;
+    width: 95%;
+    position: relative;
+    cursor: pointer;
+    color: #fafafa;
+    writing-mode: tb-rl;
+    font: 600 10px/16px roboto, "Open Sans", Helvetica, sans-serif;
+    font-size: 4vw;
+    transition: all 250ms ease;
+    box-shadow: rgba(0,0,0,.1) 0px 2px 5px 5px;
+}
+
+.tabbed ul li:before,
+.tabbed ul li:after {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    content: " ";
+    margin-top: 2px;
+    height: 45%;
+    width: 100%; 	
+    transition: all 250ms ease;
+    background-color:tomato;
+}
+
+.tabbed ul li:before {
+    right: 0;
+    top: -25px;
+    transform: skew(0deg, 30deg);
+    box-shadow: rgba(0,0,0,.1) 0px -2px 2px 0px;
+    border-radius: 0 8px 0 0;
+    
+}
+
+.tabbed ul li:after {
+    right: 0;
+    bottom: -25px;
+    transform: skew(0deg, -30deg);
+    box-shadow: rgba(0,0,0,.1) 0px 2px 2px;
+    border-radius: 0 0 8px 0;
+}
+
+.tabbed ul li.selCT {
+    z-index: 3;
+    background-color: #fafafa;
+    color: black;
+}
+.tabbed ul li.selCT:before,
+.tabbed ul li.selCT:after {
+    z-index: -1;
+    background-color: #fafafa;
+    color: black;
+}
+
+/*list menu*/
+
+.tab-content {
+    z-index:1;
+    -webkit-overflow-scrolling:touch;
+    overflow:auto;
+    padding: 70px 0 65px 0;
+    /*border-right: 2px solid black;*/
+    
+}
+
+.tab-content > ul > li {
+    background-color:#fafafa;
+    padding: 8px;
+    padding-bottom: 0px;
+    font-size:16px;
+    border-bottom-width: .5px;
+    border-style: solid;
+    border-color: #777;
+
+    font: 600 8px roboto, "Open Sans", Helvetica, sans-serif;
+}
+
+.tab-content > ul > li > .media > .media-body {
+
+    white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera <7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;
+}
+
+
+.modal {
+  background: rgba(0,0,0,0.6);
+}
+
+
+
+
+
+
+
